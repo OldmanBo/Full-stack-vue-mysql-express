@@ -31,6 +31,25 @@ const updateUser = async (req, res) => {
     const data = req.body
 
     if (req.userAuthorized) {
+        const { user_name, first_name, last_name, email, password, birth_date } = req.body
+
+        //User input check
+        if (!user_name) {
+            return res.status(400).json({ success: false, msg: 'User name required!' })
+        }
+        if (!first_name) {
+            return res.status(400).json({ success: false, msg: 'First name required!' })
+        }
+        if (!last_name) {
+            return res.status(400).json({ success: false, msg: 'Last name required!' })
+        }
+        if (!email) {
+            return res.status(400).json({ success: false, msg: 'Email required!' })
+        }
+        if (!birth_date) {
+            return res.status(400).json({ success: false, msg: 'Date of birth required!' })
+        }
+
         db.query('SELECT * FROM users WHERE user_id = ?', [reqUserID], (error, results) => {
             if (error) {
                 return res.status(400).json({ msg: 'query error', error: error })
@@ -115,6 +134,9 @@ const searchUsers = (req, res) => {
         const maxPages = Math.ceil(usersNum / limit)
         const offset = (parseInt(page) - 1) * limit
 
+        if (results[0].users_num < 1) {
+            return res.status(404).json({ success: false, msg: 'Sorry, no users found with these search terms' })
+        }
         if (maxPages < page) {
             res.status(404).json({ success: false, msg: `No more pages, the last page is number: ${maxPages}` })
         } else {

@@ -199,6 +199,7 @@ h1 {
 .blog_snippet {
   font-size: var(--fontTextMedium);
   margin: 15px 0;
+  line-break: anywhere;
 }
 .blog_snippet span {
   display: block;

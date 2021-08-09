@@ -258,6 +258,8 @@ export default {
 .user_link_wrap {
   height: 100%;
   margin-bottom: 30px;
+  width: 100%;
+  max-width: 800px
 }
 .search_page .user_details {
   margin-bottom: 0;

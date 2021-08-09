@@ -145,7 +145,9 @@ const searchBlogs = (req, res) => {
         const blogsNum = results[0].blogs_num
         const maxPages = Math.ceil(blogsNum / limit)
         const offset = (parseInt(page) - 1) * limit
-
+        if (blogsNum < 1) {
+            return res.status(404).json({ success: false, msg: 'Sorry, no blogs found with these search terms' })
+        }
         if (maxPages < page) {
             res.status(404).json({ success: false, msg: `No more pages, the last page is number: ${maxPages}` })
         } else {
