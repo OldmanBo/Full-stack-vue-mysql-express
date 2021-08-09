@@ -13,7 +13,7 @@ CREATE TABLE blogs (
 	PRIMARY KEY (blog_id)
 );
 
-INSERT INTO blogs (user_id, title, body, body_snippet, img, date_created) VALUES (
+INSERT INTO blogs (user_id, title, body, body_snippet, date_created) VALUES (
 	1,
 	'Blog Title 1', 
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem consequatur quae
@@ -104,6 +104,7 @@ CREATE TABLE users (
     bio text,
     birth_date date,
     phone_number varchar(50),
+    img varchar(255),
     PRIMARY KEY (user_id)
 );
 
@@ -115,8 +116,7 @@ INSERT INTO users (
     password,
     bio,
     birth_date,
-    phone_number,
-    img
+    phone_number
 ) VALUES (
 	'Brb',
 	'Babara',
