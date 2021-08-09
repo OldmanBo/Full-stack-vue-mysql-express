@@ -131,7 +131,6 @@ export default {
     openUserEdit(userToEdit) {
       this.updateUserModal = true;
       this.userToBeEdited = userToEdit;
-      console.log(this.userToBeEdited);
       this.axiosUserData.email = this.userToBeEdited.email;
       this.axiosUserData.user_name = this.userToBeEdited.user_name;
       this.axiosUserData.first_name = this.userToBeEdited.first_name;

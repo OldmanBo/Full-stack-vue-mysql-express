@@ -60,8 +60,6 @@ export default {
     },
   },
   created() {
-    console.log("homepage");
-    console.log(this.$store.getters.getActiveUser);
     axios
       .get(`${this.url}blogs/search/results`, { withCredentials: true })
       .then((res) => {

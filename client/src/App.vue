@@ -28,16 +28,12 @@ export default {
     axios
       .get(`${url}auth/usercheck`, { withCredentials: true })
       .then((res) => {
-        // console.log("data");
-        // console.log(res.data.user);
         this.activeUser.status = res.data.user.logedIn;
         this.activeUser.user_id = res.data.user.user_id;
         this.$store.commit("setActiveUser", res.data.user);
       })
       .catch((err) => {
         if (err.response) {
-          // console.log("BefoerCreated");
-          // console.log(err.response.data);
           this.activeUser.status = err.response.data.user.logedIn;
           this.activeUser.user_id = "";
           this.$store.commit("setActiveUser", err.response.data.user);

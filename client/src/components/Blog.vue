@@ -107,11 +107,8 @@ export default {
       this.updateBlogData.body_snippet = this.blogToBeEdited.body_snippet;
       this.updateBlogData.body = this.blogToBeEdited.body;
       this.updateBlogModal = true;
-      console.log(this.blogToBeEdited);
-      console.log("click");
     },
     updateBlog() {
-      console.log(this.blogToBeEdited);
       const axiosData = {
         title: this.updateBlogData.title,
         body_snipet: this.updateBlogData.body_snipet,
