@@ -51,6 +51,7 @@
           <label for="password">Password: </label>
           <input type="password" name="password" id="password" v-model="pass" />
         </div>
+        <p class="error_msg" v-if="userErrormsg">{{ userErrormsg }}</p>
         <button type="" @click="loginUser">LOGIN</button>
         <p class="closeLogin" @click="loginModal = false">Go Back</p>
       </div>
@@ -147,6 +148,7 @@ export default {
         .catch((err) => {
           if (err.response) {
             console.log(err.response);
+            this.userErrormsg = err.response.data.msg;
           } else {
             console.log(err);
           }
@@ -307,6 +309,9 @@ nav {
   flex-direction: column;
   font-size: var(--fontTextBig);
   padding: 50px;
+  max-width: 500px;
+  min-width: 300px;
+  width: 100%;
 }
 .register_form {
   background: var(--lvl3-purple);
