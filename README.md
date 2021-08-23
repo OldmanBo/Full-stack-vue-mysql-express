@@ -15,6 +15,26 @@
 6. Open the second terminal window, navigate in the server folder and run 'npm start' to start the nodemon server on port 3000.
 Now everything should be working fine and the client and the server should not be having any problems communicating.  
 
+## Features showcase
+#### mysql paginaiton
+<img src='/showcase_gif_files/Example1.gif' width= 1000px>  
+
+#### mysql blogs search
+<img src='/showcase_gif_files/Example2.gif' width= 1000px>  
+
+#### mysql users search
+<img src='/showcase_gif_files/Example6.gif' width= 1000px>  
+
+#### user registration and backend form validation
+<img src='/showcase_gif_files/Example3.gif' width= 1000px>  
+
+#### user login
+<img src='/showcase_gif_files/Example4.gif' width= 1000px>  
+
+#### user edit
+<img src='/showcase_gif_files/Example5.gif' width= 1000px>  
+
+
 ## Info about the Full-stack-vue-mysql-express  
 This is my first full stack project, client side is made with vue js, while server side is made with nodejs/express and the database is Mysql. Of course there are a couple of npm packages:  
     - express: web framework for nodejs  
