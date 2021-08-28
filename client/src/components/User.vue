@@ -84,11 +84,16 @@
         </div>
         <div class="form_group">
           <label for="bio">Bio: </label>
-          <input type="text" name="bio" id="bio" v-model="axiosUserData.bio" />
+          <textarea
+            type="text"
+            name="bio"
+            id="bio"
+            v-model="axiosUserData.bio"
+          />
         </div>
         <button type="" @click.prevent="editUser">EDIT</button>
         <p class="error_msg" v-if="userErrormsg">{{ userErrormsg }}</p>
-        <p class="closeLogin" @click="updateUserModal = false">Go Back</p>
+        <p class="closeLogin" @click="updateUserModal = false">X</p>
       </form>
     </div>
   </div>
@@ -193,7 +198,13 @@ export default {
   margin-bottom: 30px;
   padding: 10px;
   border: 1px solid grey;
-  background: var(--lvl2-purple);
+  border-radius: 2em;
+  background: radial-gradient(
+    circle,
+    rgba(152, 70, 252, 0.8155462868741247) 0%,
+    rgba(47, 13, 110, 0.7959384437368697) 100%
+  );
+  /* mix-blend-mode: luminosity; */
 }
 .img_contianer {
   margin: 0 15px;
@@ -207,11 +218,12 @@ export default {
 }
 .about_me_container p {
   margin: 5px 0;
-  color: var(--lvl1-pink);
+  color: white;
+  text-shadow: 0 0 2px black;
 }
 .about_me_container span {
   font-weight: bold;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .user_details button {
   writing-mode: vertical-rl;
@@ -244,6 +256,7 @@ export default {
   background: rgba(36, 0, 36, 0.623);
 }
 .update_user_form {
+  position: relative;
   background: var(--lvl3-purple);
   display: flex;
   flex-direction: column;
@@ -253,8 +266,33 @@ export default {
   width: 80%;
   max-width: 780px;
   min-width: 500px;
+  border: 1px solid rgba(191, 69, 252, 0.95);
+  border-radius: 1em;
 }
-.update_user_form input {
+.update_user_form button {
+  margin-top: 30px;
+  /* width: 73px;
+  height: 73px; */
+  padding: 10px;
+  background: radial-gradient(
+    circle,
+    rgba(191, 69, 252, 0.95) 0%,
+    rgba(27, 14, 121, 0.92) 100%
+  );
+  color: white;
+  border: 2px solid rgba(191, 69, 252, 0.95);
+  border-radius: 5px;
+  font-size: var(--fontTextMedium);
+  cursor: pointer;
+  transition: filter 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  filter: brightness(70%);
+}
+.update_user_form button:hover {
+  filter: brightness(100%);
+  box-shadow: 0 0 5px rgba(191, 69, 252, 0.95);
+}
+.update_user_form input,
+.update_user_form textarea {
   margin-left: auto;
   width: 60%;
 }

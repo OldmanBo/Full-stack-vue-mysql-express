@@ -53,7 +53,7 @@
         </div>
         <p class="error_msg" v-if="userErrormsg">{{ userErrormsg }}</p>
         <button type="" @click="loginUser">LOGIN</button>
-        <p class="closeLogin" @click="loginModal = false">Go Back</p>
+        <p class="closeLogin" @click="loginModal = false">X</p>
       </div>
     </div>
     <!-- Register user modal -->
@@ -103,9 +103,9 @@
           <label for="image">Profile Image: </label>
           <input type="file" name="image" id="image" />
         </div>
-        <button type="" @click.prevent="registerUser">REGISTER</button>
         <p class="error_msg" v-if="userErrormsg">{{ userErrormsg }}</p>
-        <p class="closeLogin" @click="registerModal = false">Go Back</p>
+        <button type="" @click.prevent="registerUser">REGISTER</button>
+        <p class="closeLogin" @click="registerModal = false">X</p>
       </form>
     </div>
   </header>
@@ -223,15 +223,22 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 20px 7%;
-  background-color: var(--lvl2-purple);
+  background: radial-gradient(
+    circle,
+    hsla(280, 56%, 40%, 0.8) 0%,
+    hsl(262, 79%, 24%) 100%
+  );
   color: var(--lvl1-pink);
+  z-index: 5;
+  position: relative;
 }
 .header_logo {
   text-align: left;
   font-size: var(--fontH3);
 }
 .logo {
-  color: var(--lvl4-purple);
+  color: white;
+  text-shadow: 0 0 10px rgb(0, 231, 255);
 }
 .header_logo,
 .auth_btns,
@@ -255,10 +262,15 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  transform: scale(1, 0);
-  background-color: #e3f7d4;
+  transform: scale(0, 0);
+  box-shadow: 0 0 6px rgb(219, 153, 252);
+  background: radial-gradient(
+    circle,
+    rgba(191, 69, 252, 0.95) 0%,
+    rgba(103, 14, 121, 0.92) 100%
+  );
   transition: transform 300ms cubic-bezier(0.77, 0, 0.18, 1);
-  mix-blend-mode: exclusion;
+  mix-blend-mode: overlay;
   transform-origin: center;
   border-radius: 10px;
 }
@@ -280,11 +292,13 @@ nav {
   border-radius: 10px;
   padding: 5px;
   cursor: pointer;
-  transition: box-shadow 110ms ease-in, transform 100ms ease-in;
+  transition: box-shadow 110ms ease-in, transform 100ms ease-in,
+    color 110ms ease-in;
 }
 .auth_btn:hover {
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.63);
+  box-shadow: 5px 5px 5px rgba(179, 26, 255, 0.95);
   transform: translate(-2px, -2px);
+  color: rgba(179, 26, 255, 0.95);
 }
 .auth_btn + .auth_btn {
   margin-left: 10px;
@@ -306,20 +320,48 @@ nav {
 .login_form {
   background: var(--lvl3-purple);
   display: flex;
+  position: relative;
   flex-direction: column;
   font-size: var(--fontTextBig);
   padding: 50px;
   max-width: 500px;
   min-width: 300px;
   width: 100%;
+  opacity: 1;
+  border-radius: 1em;
+  border: 1px solid rgba(191, 69, 252, 0.95);
 }
 .register_form {
   background: var(--lvl3-purple);
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   font-size: var(--fontTextMedium);
   padding: 50px;
+  border: 1px solid rgba(191, 69, 252, 0.95);
+  border-radius: 1em;
+}
+.register_form button {
+  margin-top: 30px;
+  width: 73px;
+  height: 73px;
+  padding: 5px;
+  background: radial-gradient(
+    circle,
+    rgba(191, 69, 252, 0.95) 0%,
+    rgba(27, 14, 121, 0.92) 100%
+  );
+  color: white;
+  border: 2px solid rgba(191, 69, 252, 0.95);
+  border-radius: 100%;
+  cursor: pointer;
+  transition: filter 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  filter: brightness(70%);
+}
+.register_form button:hover {
+  filter: brightness(100%);
+  box-shadow: 0 0 5px rgba(191, 69, 252, 0.95);
 }
 .register_form input {
   margin-left: auto;
@@ -339,16 +381,46 @@ nav {
   flex-direction: column;
   margin: 15px 0;
 }
+.login_form input {
+  font-size: var(--fontTextBig);
+  padding: 4px;
+}
 .login_form button {
   margin-top: 40px;
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  display: block;
+  margin: 40px auto 0 auto;
+  background: radial-gradient(
+    circle,
+    rgba(191, 69, 252, 0.95) 0%,
+    rgba(27, 14, 121, 0.92) 100%
+  );
+  color: white;
+  border: 2px solid rgba(191, 69, 252, 0.95);
+  border-radius: 100%;
+  cursor: pointer;
+  transition: filter 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  filter: brightness(70%);
+}
+.login_form button:hover {
+  box-shadow: 0 0 5px rgba(191, 69, 252, 0.95);
+  filter: brightness(100%);
 }
 .closeLogin {
   cursor: pointer;
-  margin: 25px auto 5px auto;
-  padding: 10px;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  position: absolute;
+  padding: 5px;
   border: 2px solid black;
   border-radius: 5px;
   color: var(--lvl1-pink);
+  display: block;
+  top: 10px;
+  right: 10px;
 }
 
 .error_msg {

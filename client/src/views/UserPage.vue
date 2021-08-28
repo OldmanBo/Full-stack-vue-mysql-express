@@ -188,7 +188,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--lvl1-pink);
+  background-color: transparent;
 }
 .user_page .error_msg {
   text-align: center;
@@ -208,7 +208,8 @@ export default {
   width: 100%;
   max-width: 780px;
   min-width: 500px;
-  box-shadow: 0 0 5px var(--lvl4-purple);
+  box-shadow: inset 0 0 150px #4700bf, 0 0 5px;
+  color: white;
   border-radius: 5px;
   padding: 15px 10px;
   margin-bottom: 50px;
@@ -225,7 +226,26 @@ export default {
 .new_blog button {
   margin: 10px auto 0 auto;
   width: 100px;
-  /* border: 1px solid var(--lvl4-purple); */
+  margin-top: 30px;
+  /* width: 73px;
+  height: 73px; */
+  padding: 10px;
+  background: radial-gradient(
+    circle,
+    rgba(191, 69, 252, 0.95) 0%,
+    rgba(27, 14, 121, 0.92) 100%
+  );
+  color: white;
+  border: 2px solid rgba(191, 69, 252, 0.95);
+  border-radius: 5px;
+  font-size: var(--fontTextMedium);
+  cursor: pointer;
+  transition: filter 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  filter: brightness(80%);
+}
+.new_blog button:hover {
+  filter: brightness(100%);
+  box-shadow: 0 0 5px rgba(191, 69, 252, 0.95);
 }
 .new_blog .form_group {
   display: flex;
@@ -235,7 +255,7 @@ export default {
 .new_blog .form_group textarea {
   border: 2px solid var(--lvl2-purple);
   border-radius: 5px;
-  background: var(--lvl1-yellow);
+  background: white;
 }
 .new_blog.new_blog_inactive {
   height: 75px;

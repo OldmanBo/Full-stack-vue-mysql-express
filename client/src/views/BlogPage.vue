@@ -53,6 +53,13 @@ export default {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  background-color: var(--lvl1-pink);
+  background-color: transparent;
+}
+.blog_page .blog_container {
+  background-color: rgba(230, 250, 117, 0.219);
+  /* background-color: #e3f7d4e8; */
+}
+.blog_page .blog_body {
+  text-shadow: 0 0 25px black;
 }
 </style>

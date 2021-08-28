@@ -65,7 +65,7 @@
         </div>
         <button type="" @click.prevent="updateBlog">Update Blog</button>
         <p class="error_msg" v-if="userErrormsg">{{ userErrormsg }}</p>
-        <p class="closeLogin" @click="updateBlogModal = false">Go Back</p>
+        <p class="closeLogin" @click="updateBlogModal = false">X</p>
       </div>
     </div>
   </div>
@@ -162,8 +162,14 @@ export default {
   width: 100%;
   max-width: 85ch;
   text-align: center;
-  color: var(--text-color);
-  background-color: var(--lvl1-yellow);
+  color: white;
+  text-shadow: 0 0 3px rgb(0, 231, 255);
+  background: radial-gradient(
+    circle,
+    rgba(191, 69, 252, 0.95) 0%,
+    rgba(27, 14, 121, 0.92) 100%
+  );
+  /* background-color: rgba(254, 254, 51, 0.51); */
   padding: 25px;
   border-radius: 5px;
   box-shadow: 0 0 5px var(--lvl4-purple);
@@ -181,7 +187,7 @@ h1 {
 .blog_header {
   display: flex;
   justify-content: space-between;
-  font-size: var(--fontTextSmall);
+  font-size: var(--fontTextMedium);
   font-weight: bold;
   opacity: 0.8;
   font-style: italic;
@@ -194,9 +200,11 @@ h1 {
 
 .blog_body,
 .blog_snippet {
-  font-size: var(--fontTextMedium);
+  font-size: 1.1rem;
   margin: 15px 0;
   line-break: anywhere;
+  color: white;
+  mix-blend-mode: luminosity;
 }
 .blog_snippet span {
   display: block;
@@ -204,20 +212,26 @@ h1 {
   font-weight: 600;
 }
 .edit_blog_btn {
-  margin: 50px auto 0 auto;
-  display: block;
-  font-size: var(--fontTextBig);
-  background-color: transparent;
-  border: 1px solid var(--lvl4-purple);
-  padding: 5px;
-  border-radius: 10px;
-  color: var(--text-color);
+  margin-top: 30px;
+  /* width: 73px;
+  height: 73px; */
+  padding: 10px 5px;
+  background: radial-gradient(
+    circle,
+    rgba(191, 69, 252, 0.95) 0%,
+    rgba(27, 14, 121, 0.92) 100%
+  );
+  color: white;
+  border: 2px solid rgba(191, 69, 252, 0.95);
+  border-radius: 5px;
+  font-size: var(--fontTextMedium);
   cursor: pointer;
-  transition: background-color 150ms ease-in, color 150ms ease-in;
+  transition: filter 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  filter: brightness(70%);
 }
 .edit_blog_btn:hover {
-  background-color: var(--lvl4-purple);
-  color: var(--lvl1-pink);
+  filter: brightness(100%);
+  box-shadow: 0 0 5px rgba(191, 69, 252, 0.95);
 }
 .update_blog_modal {
   z-index: 100;
@@ -233,6 +247,7 @@ h1 {
 }
 .update_blog_form {
   background: var(--lvl3-purple);
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -241,6 +256,30 @@ h1 {
   width: 80%;
   max-width: 780px;
   min-width: 500px;
+  border: 1px solid rgba(191, 69, 252, 0.95);
+  border-radius: 1em;
+}
+.update_blog_form button {
+  margin-top: 30px;
+  /* width: 73px;
+  height: 73px; */
+  padding: 10px 5px;
+  background: radial-gradient(
+    circle,
+    rgba(191, 69, 252, 0.95) 0%,
+    rgba(27, 14, 121, 0.92) 100%
+  );
+  color: white;
+  border: 2px solid rgba(191, 69, 252, 0.95);
+  border-radius: 5px;
+  font-size: var(--fontTextMedium);
+  cursor: pointer;
+  transition: filter 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  filter: brightness(70%);
+}
+.update_blog_form button:hover {
+  filter: brightness(100%);
+  box-shadow: 0 0 5px rgba(191, 69, 252, 0.95);
 }
 .update_blog_form input {
   margin-left: auto;

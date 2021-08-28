@@ -22,6 +22,7 @@
 <script>
 import axios from "axios";
 import Blog from "../components/Blog.vue";
+const _ = require("lodash");
 
 export default {
   components: { Blog },
@@ -98,10 +99,34 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--lvl1-pink);
+  background-color: transparent;
 }
 .more_blogs_btn {
   margin-top: 20px;
   font-size: var(--fontTextMedium);
+  z-index: 3;
+  /* width: 73px;
+  height: 73px; */
+  padding: 10px;
+  background: radial-gradient(
+    circle,
+    rgba(191, 69, 252, 0.95) 0%,
+    rgba(27, 14, 121, 0.92) 100%
+  );
+  color: white;
+  border: 2px solid rgba(191, 69, 252, 0.95);
+  border-radius: 5px;
+  font-size: var(--fontTextMedium);
+  cursor: pointer;
+  transition: filter 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  filter: brightness(90%);
+}
+.more_blogs_btn:hover {
+  filter: brightness(100%);
+  box-shadow: 0 0 5px rgba(191, 69, 252, 0.95);
+  text-shadow: 0 0 3px white;
+}
+.home_page .blog_container {
+  z-index: 3;
 }
 </style>

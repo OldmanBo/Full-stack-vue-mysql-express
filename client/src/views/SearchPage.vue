@@ -205,6 +205,9 @@ export default {
           if (err.response) {
             this.searchErrormsg = err.response.data.msg;
             console.log(this.searchErrormsg);
+            this.blogs = [];
+            this.users = [];
+            this.searchPagesInfo = {};
           } else {
             console.log(err);
           }
@@ -238,16 +241,20 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: var(--lvl1-pink);
+  background-color: transparent;
   min-height: 100vh;
 }
 .seacrh_form {
-  padding: 5px;
-  border: 1px solid black;
+  padding: 5px 25px;
+  border: 1px solid rgba(191, 69, 252, 0.95);
+  border-radius: 2%;
   margin-bottom: 50px;
+  background-color: hsla(60, 69%, 90%, 0.59);
 }
 .seacrh_form .form_group {
   margin: 10px 0;
+  text-shadow: 0 0 3px white;
+  font-weight: 600;
 }
 .search_page .error_msg {
   text-align: center;
@@ -255,11 +262,34 @@ export default {
   font-size: var(--fontTextBig);
   margin: 10px 0;
 }
+.seacrh_form button {
+  margin: 20px auto 10px auto;
+  display: block;
+  /* width: 73px;
+  height: 73px; */
+  padding: 10px;
+  background: radial-gradient(
+    circle,
+    rgba(191, 69, 252, 0.95) 0%,
+    rgba(27, 14, 121, 0.92) 100%
+  );
+  color: white;
+  border: 2px solid rgba(191, 69, 252, 0.95);
+  border-radius: 5px;
+  font-size: var(--fontTextMedium);
+  cursor: pointer;
+  transition: filter 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  filter: brightness(80%);
+}
+.seacrh_form button:hover {
+  filter: brightness(100%);
+  box-shadow: 0 0 5px rgba(191, 69, 252, 0.95);
+}
 .user_link_wrap {
   height: 100%;
   margin-bottom: 30px;
   width: 100%;
-  max-width: 800px
+  max-width: 800px;
 }
 .search_page .user_details {
   margin-bottom: 0;
