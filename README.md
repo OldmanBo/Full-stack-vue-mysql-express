@@ -15,7 +15,17 @@
 6. Open the second terminal window, navigate in the server folder and run 'npm start' to start the nodemon server on port 3000.
 Now everything should be working fine and the client and the server should not be having any problems communicating.  
 
-## Features showcase
+## New Design
+#### Animated Dynamic Background - blobs position and size changes with every pge reload
+<img src='/showcase_gif_files/animation.gif' width= 1000px>  
+
+#### New design images
+<img src='/showcase_gif_files/home_page.png' width= 1000px>  
+<img src='/showcase_gif_files/blog.png' width= 1000px>  
+<img src='/showcase_gif_files/login.png' width= 1000px>  
+<img src='/showcase_gif_files/userpage.png' width= 1000px>  
+
+## Simple Design for Features showcase(simple design used to keep gif files smaller)
 #### mysql paginaiton
 <img src='/showcase_gif_files/Example1.gif' width= 1000px>  
 
