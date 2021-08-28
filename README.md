@@ -16,7 +16,7 @@
 Now everything should be working fine and the client and the server should not be having any problems communicating.  
 
 ## New Design
-#### Animated Dynamic Background - blobs position and size changes with every pge reload
+#### Animated Dynamic Background - blobs position and size chang with every pge reload
 <img src='/showcase_gif_files/animation.gif' width= 1000px>  
 
 #### New design images
